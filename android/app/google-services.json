@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "283269828852",
+    "firebase_url": "https://thizer-delivery.firebaseio.com",
+    "project_id": "thizer-delivery",
+    "storage_bucket": "thizer-delivery.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:283269828852:android:404d05ba1537fe9a37cea1",
+        "android_client_info": {
+          "package_name": "com.thizer.deliveryapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "283269828852-b08rqbgfgu3o42t8t03i2eh9sn4h51hs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.thizer.deliveryapp",
+            "certificate_hash": "4de8bc2afe31b8f1290c84b9c4fb09f3be70e26a"
+          }
+        },
+        {
+          "client_id": "283269828852-b3luqu6a26gcs165vu5edj0bov7gmkt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH_oYRypnmIPIz6Kl8RtTEnPg4OTjkouU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "283269828852-b3luqu6a26gcs165vu5edj0bov7gmkt2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
