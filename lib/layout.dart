@@ -25,12 +25,12 @@ class Layout {
   static Color primaryLight([double opacity = 1]) => Color(0xffff6659).withOpacity(opacity);
   static Color primaryDark([double opacity = 1]) => Color(0xff9a0007).withOpacity(opacity);
 
-  static Color secondary([double opacity = 1]) => Color(0xffc2c03e).withOpacity(opacity);
+  static Color secondary([double opacity = 1]) => Colors.yellow[800].withOpacity(opacity);
   static Color secondaryLight([double opacity = 1]) => Color(0xfff7f26f).withOpacity(opacity);
   static Color secondaryDark([double opacity = 1]) => Color(0xff8f9000).withOpacity(opacity);
 
   static Color light([double opacity = 1]) => Color.fromRGBO(230, 230, 230, opacity);
-  static Color dark([double opacity = 1]) => primaryDark(opacity);
+  static Color dark([double opacity = 1]) => Color(0xff333333).withOpacity(opacity);
 
   static Color danger([double opacity = 1]) => Color.fromRGBO(217, 74, 74, opacity);
   static Color success([double opacity = 1]) => Color.fromRGBO(5, 100, 50, opacity);
