@@ -9,70 +9,31 @@ class Layout {
       ),
       body: content,
       floatingActionButton: FloatingActionButton(
-        onPressed: () async {
-          //
-          // Aqui um exemplo para excluir registros
-          // QuerySnapshot pedidos = await Firestore.instance.collection('pedido').getDocuments();
-          // pedidos.documents
-          //     .where(
-          //   (DocumentSnapshot doc) => doc.data['valor'].toString() == '68.68',
-          // )
-          //     .forEach(
-          //   (DocumentSnapshot found) {
-          //     found.reference.delete();
-          //   },
-          // );
-          // return null;
-
-          //
-          // Primeiro buscamos o primeiro produto da lista
-          QuerySnapshot queryProd = await Firestore.instance.collection('produto').limit(1).getDocuments();
-          DocumentReference prod = queryProd.documents.first.reference;
-
-          // Lista de sabores
-          QuerySnapshot querySab = await Firestore.instance.collection('sabor_pizza').getDocuments();
-          Iterable<DocumentSnapshot> sabores = querySab.documents.where((DocumentSnapshot test) {
-            return test.data['desc'].toString().toLowerCase().contains('e');
-          });
-
-          Map<String, bool> tags = {
-            'azeitona': false,
-            'cebola': true,
-            'molho_tomate': true,
-          };
-
-          QuerySnapshot queryUsr = await Firestore.instance.collection('usuarios').getDocuments();
-          Iterable<DocumentSnapshot> usrs = queryUsr.documents.where((DocumentSnapshot test) {
-            return test.data['nome'].toString().toLowerCase() == 'maria rita';
-          });
-
-          Map<String, dynamic> data = {
-            'produto': prod,
-            // 'sabores': sabores.map((item) => {'sabor_' + counter.toString(): item.reference}),
-            'tags': tags,
-            'usuario': usrs.first.reference,
-            'valor': 68.68
-          };
-
-          Map<String, dynamic> listSabores = Map<String, dynamic>();
-
-          int counter = 1;
-          sabores.forEach((DocumentSnapshot sabDoc) => listSabores['sabor_' + (counter++).toString()] = sabDoc.reference);
-
-          data['sabores'] = listSabores;
-
-          print(listSabores);
-          DocumentReference addido = await Firestore.instance.collection('pedido').add(data);
-          print(addido);
-        },
+        onPressed: () {},
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(
+          Icons.add,
+          color: Layout.light(),
+          size: 48,
+        ),
       ),
     );
   }
 
   // https://material.io/resources/color/#!/?view.left=0&view.right=1&primary.color=D32F2F&secondary.color=C2C03E&secondary.text.color=ffffff
-  Color primary([double opacity = 1]) => Colors.red[700].withOpacity(opacity);
+  static Color primary([double opacity = 1]) => Colors.red[700].withOpacity(opacity);
+  static Color primaryLight([double opacity = 1]) => Color(0xffff6659).withOpacity(opacity);
+  static Color primaryDark([double opacity = 1]) => Color(0xff9a0007).withOpacity(opacity);
 
-  Color seconday([double opacity = 1]) => Color(0xc2c03e).withOpacity(opacity);
+  static Color secondary([double opacity = 1]) => Color(0xffc2c03e).withOpacity(opacity);
+  static Color secondaryLight([double opacity = 1]) => Color(0xfff7f26f).withOpacity(opacity);
+  static Color secondaryDark([double opacity = 1]) => Color(0xff8f9000).withOpacity(opacity);
+
+  static Color light([double opacity = 1]) => Color.fromRGBO(230, 230, 230, opacity);
+  static Color dark([double opacity = 1]) => primaryDark(opacity);
+
+  static Color danger([double opacity = 1]) => Color.fromRGBO(217, 74, 74, opacity);
+  static Color success([double opacity = 1]) => Color.fromRGBO(5, 100, 50, opacity);
+  static Color info([double opacity = 1]) => Color.fromRGBO(100, 150, 255, opacity);
+  static Color warning([double opacity = 1]) => Color.fromRGBO(250, 200, 70, opacity);
 }

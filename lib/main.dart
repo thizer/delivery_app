@@ -10,7 +10,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: Layout.primary(),
+        accentColor: Layout.secondary(),
+        textTheme: TextTheme(
+          headline: TextStyle(fontWeight: FontWeight.bold, fontSize: 48),
+          title: TextStyle(fontSize: 24, fontStyle: FontStyle.italic),
+          body1: TextStyle(fontSize: 14),
+        ),
+        buttonTheme: ButtonThemeData(
+          buttonColor: Layout.secondary(),
+          textTheme: ButtonTextTheme.primary,
+        ),
       ),
       home: MyHomePage(title: 'Flutter Demo Home Page'),
     );
@@ -57,14 +67,12 @@ class _MyHomePageState extends State<MyHomePage> {
                   //   print(produto.data);
                   // });
 
-                  print(doc.data);
-
                   return ListTile(
                     leading: Icon(Icons.people, size: 52),
                     // title: Text('Título do registro'),
                     // subtitle: Text('Da pra fazer ficar bem legal'),
-                    title: Text("Pizza ${doc.data['tamanho']}"),
-                    subtitle: Text(doc.data['valor'].toString()),
+                    title: Text("${doc.data['cliente_nome']}"),
+                    subtitle: Text("Valor total: ${doc.data['valor_total'].toString()}"),
                   );
                 }).toList(),
               ),
@@ -73,6 +81,52 @@ class _MyHomePageState extends State<MyHomePage> {
       },
     );
 
-    return Layout.render(content);
+    return Layout.render(Column(
+      children: <Widget>[
+        Container(
+          color: Layout.dark(),
+          height: 150,
+          child: Center(child: Text('IMG')),
+        ),
+        Container(
+            height: 100,
+            color: Layout.light(),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                SizedBox(width: 5),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  child: Container(
+                    height: 80,
+                    width: 90,
+                    color: Layout.info(),
+                    child: Center(child: Text('IMG')),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  child: Container(
+                    height: 80,
+                    width: 90,
+                    color: Layout.info(),
+                    child: Center(child: Text('IMG')),
+                  ),
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(5, 10, 5, 10),
+                  child: Container(
+                    height: 80,
+                    width: 90,
+                    color: Layout.info(),
+                    child: Center(child: Text('IMG')),
+                  ),
+                ),
+                SizedBox(width: 5),
+              ],
+            )),
+        Expanded(child: content),
+      ],
+    ));
   }
 }
