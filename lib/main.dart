@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:delivery_app/layout.dart';
+import 'package:delivery_app/login.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -22,7 +23,11 @@ class MyApp extends StatelessWidget {
           textTheme: ButtonTextTheme.primary,
         ),
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      debugShowCheckedModeBanner: false,
+      routes: {
+        '/': (context) => LoginPage(),
+        '/home': (context) => MyHomePage(title: 'Delivery App'),
+      },
     );
   }
 }

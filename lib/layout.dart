@@ -30,7 +30,7 @@ class Layout {
   static Color secondaryDark([double opacity = 1]) => Color(0xff8f9000).withOpacity(opacity);
 
   static Color light([double opacity = 1]) => Color.fromRGBO(230, 230, 230, opacity);
-  static Color dark([double opacity = 1]) => primaryDark(opacity);
+  static Color dark([double opacity = 1]) => Color(0xff333333).withOpacity(opacity);
 
   static Color danger([double opacity = 1]) => Color.fromRGBO(217, 74, 74, opacity);
   static Color success([double opacity = 1]) => Color.fromRGBO(5, 100, 50, opacity);
