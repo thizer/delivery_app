@@ -43,7 +43,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/pizza-logo.png
+    - assets/pizza-logo-1.png
+    - assets/pizza-logo-2.png
+    - assets/pizza-logo-3.png
   #  - images/a_dot_burr.jpeg
   #  - images/a_dot_ham.jpeg
 

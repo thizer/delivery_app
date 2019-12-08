@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       routes: {
         '/': (context) => LoginPage(),
-        '/login': (context) => MyHomePage(title: 'Flutter Demo Home Page'),
+        '/home': (context) => MyHomePage(title: 'Delivery App'),
       },
     );
   }

@@ -18,6 +18,7 @@ class LoginPage extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(height: 20),
                 ClipRRect(
                   child: Container(
                     decoration: BoxDecoration(
@@ -28,13 +29,12 @@ class LoginPage extends StatelessWidget {
                       borderRadius: BorderRadius.circular(150),
                       color: Layout.dark(.8),
                     ),
-                    // color: ,
-                    child: Image.asset('assets/pizza-logo.png'),
+                    child: Image.asset('assets/pizza-logo-2.png'),
                   ),
                   borderRadius: BorderRadius.circular(150),
                 ),
                 SizedBox(height: 10),
-                Text('Delivery App', style: titleTheme)
+                Text('Delivery App', style: titleTheme),
               ],
             ),
           ),
@@ -50,8 +50,8 @@ class LoginPage extends StatelessWidget {
                     color: Colors.transparent,
                     boxShadow: [
                       BoxShadow(
-                        color: Layout.dark(.8),
-                        offset: const Offset(0.0, 0.0),
+                        color: Layout.dark(),
+                        offset: const Offset(0, 0),
                         spreadRadius: 8,
                         blurRadius: 15,
                       ),
@@ -99,8 +99,16 @@ class LoginPage extends StatelessWidget {
                         width: double.infinity,
                         height: 50,
                         child: RaisedButton(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(50),
+                            ),
+                          ),
                           onPressed: () {},
-                          child: Text('ENTRAR', style: titleTheme),
+                          child: Text(
+                            'ENTRAR',
+                            style: titleTheme,
+                          ),
                         ),
                       )
                     ],
