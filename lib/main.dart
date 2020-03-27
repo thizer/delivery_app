@@ -2,8 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:delivery_app/layout.dart';
 import 'package:delivery_app/login.dart';
 import 'package:flutter/material.dart';
+// import 'package:onesignal_flutter/onesignal_flutter.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  // OneSignal.shared.init('02d41705-3373-4da2-8c23-7e0e77f8c239');
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
