@@ -34,6 +34,6 @@ class Layout {
 
   static Color danger([double opacity = 1]) => Color.fromRGBO(217, 74, 74, opacity);
   static Color success([double opacity = 1]) => Color.fromRGBO(5, 100, 50, opacity);
-  static Color info([double opacity = 1]) => Color.fromRGBO(100, 150, 255, opacity);
+  static Color info([double opacity = 1]) => Color.fromRGBO(13, 71, 161, opacity);
   static Color warning([double opacity = 1]) => Color.fromRGBO(250, 200, 70, opacity);
 }

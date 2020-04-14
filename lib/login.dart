@@ -52,8 +52,8 @@ class LoginPage extends StatelessWidget {
                       BoxShadow(
                         color: Layout.dark(),
                         offset: const Offset(0, 0),
-                        spreadRadius: 8,
-                        blurRadius: 15,
+                        spreadRadius: 3,
+                        blurRadius: 10,
                       ),
                     ],
                   ),
@@ -62,22 +62,38 @@ class LoginPage extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(25),
-                    topRight: Radius.circular(25),
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15),
                   ),
                   color: Layout.light(),
                 ),
-                height: MediaQuery.of(context).size.height * .6,
+                height: _calcContentHeight(context),
                 child: Padding(
                   padding: EdgeInsets.all(20),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
+                      SizedBox(
+                        child: Padding(
+                          padding: EdgeInsets.only(left: 7),
+                          child: Text('Entre para fazer seu pedido'),
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                        height: 30,
+                      ),
                       TextFormField(
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(50),
+                              Radius.circular(10),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            borderSide: BorderSide(
+                              color: Layout.info(),
                             ),
                           ),
                         ),
@@ -88,7 +104,15 @@ class LoginPage extends StatelessWidget {
                         decoration: InputDecoration(
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(50),
+                              Radius.circular(10),
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(10),
+                            ),
+                            borderSide: BorderSide(
+                              color: Layout.info(),
                             ),
                           ),
                         ),
@@ -98,19 +122,44 @@ class LoginPage extends StatelessWidget {
                       SizedBox(
                         width: double.infinity,
                         height: 50,
-                        child: RaisedButton(
+                        child: FlatButton(
+                          color: Layout.info(),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.all(
-                              Radius.circular(50),
+                              Radius.circular(10),
                             ),
                           ),
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.of(context).pushReplacementNamed('/home');
+                          },
                           child: Text(
                             'ENTRAR',
                             style: titleTheme,
                           ),
                         ),
-                      )
+                      ),
+                      SizedBox(height: 20),
+                      SizedBox(
+                        child: Align(
+                          alignment: Alignment.centerRight,
+                          child: Padding(
+                            padding: EdgeInsets.only(right: 7),
+                            child: GestureDetector(
+                              child: Text(
+                                'ou CADASTRE-SE',
+                                style: TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  color: Layout.primaryDark(),
+                                ),
+                              ),
+                              onTap: () {
+                                print('Tela de cadastro');
+                              },
+                            ),
+                          ),
+                        ),
+                        width: MediaQuery.of(context).size.width,
+                      ),
                     ],
                   ),
                 ),
@@ -120,5 +169,14 @@ class LoginPage extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  double _calcContentHeight(BuildContext context) {
+    var totalHeight = MediaQuery.of(context).size.height;
+    var heightAvailable = totalHeight - MediaQuery.of(context).viewInsets.bottom;
+    var heightIWant = MediaQuery.of(context).size.height * .6;
+    var result = heightIWant > heightAvailable ? heightAvailable : heightIWant;
+
+    return result;
   }
 }
