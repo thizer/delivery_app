@@ -1,22 +1,17 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class Layout {
-  static Widget render(Widget content, [String title = 'Delivery App']) {
+  static Widget render(
+    BuildContext context, {
+    Widget child,
+    floatingActionButton,
+  }) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(title),
+        title: Text('Delivery App'),
       ),
-      body: content,
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-        tooltip: 'Increment',
-        child: Icon(
-          Icons.add,
-          color: Layout.light(),
-          size: 48,
-        ),
-      ),
+      body: child,
+      floatingActionButton: floatingActionButton,
     );
   }
 

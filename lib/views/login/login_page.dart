@@ -1,12 +1,14 @@
-import 'package:delivery_app/layout.dart';
+import 'package:delivery_app/views/layout.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatelessWidget {
+  static String tag = '/login';
+
   @override
   Widget build(BuildContext context) {
     //
     // Captura o tema do titulo
-    TextStyle titleTheme = Theme.of(context).textTheme.title.copyWith(
+    TextStyle titleTheme = Theme.of(context).textTheme.headline6.copyWith(
           color: Layout.light(),
         );
 
@@ -83,6 +85,7 @@ class LoginPage extends StatelessWidget {
                       ),
                       TextFormField(
                         decoration: InputDecoration(
+                          hintText: 'Email',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10),
@@ -97,11 +100,11 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        initialValue: 'Email',
                       ),
                       SizedBox(height: 15),
                       TextFormField(
                         decoration: InputDecoration(
+                          hintText: 'Senha',
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.all(
                               Radius.circular(10),
@@ -116,7 +119,7 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        initialValue: 'Senha',
+                        obscureText: true,
                       ),
                       SizedBox(height: 15),
                       SizedBox(
@@ -158,7 +161,7 @@ class LoginPage extends StatelessWidget {
                             ),
                           ),
                         ),
-                        width: MediaQuery.of(context).size.width,
+                        width: double.infinity,
                       ),
                     ],
                   ),
@@ -175,7 +178,11 @@ class LoginPage extends StatelessWidget {
     var totalHeight = MediaQuery.of(context).size.height;
     var heightAvailable = totalHeight - MediaQuery.of(context).viewInsets.bottom;
     var heightIWant = MediaQuery.of(context).size.height * .6;
-    var result = heightIWant > heightAvailable ? heightAvailable : heightIWant;
+
+    var result = heightIWant;
+    if (MediaQuery.of(context).viewInsets.bottom > 0) {
+      result = heightAvailable;
+    }
 
     return result;
   }
